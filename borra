@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Comprobamos si existe el directorio que hará de papelera
+#y si no existe lo creamos en el home del usuario
+
+#Declaramos el nombre del directorio "papelera".
+Directorio=/PapeleraReciclaje
+
+if [ ! -d $Directorio ]
+then mkdir ~/$Directorio 2> /dev/null
+fi
+
