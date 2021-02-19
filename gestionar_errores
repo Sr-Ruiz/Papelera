@@ -1,0 +1,85 @@
+#!/bin/bash
+
+#Gestión de errores cuando se introducen parámetros//opciones incorrectos
+
+#primero se identifican los parámetros correctos : 
+#borra fichero  // borra -r fichero // borra fichero -r
+
+#errores que puede haber:
+
+#no hay ningún parámetro tras borra
+#el fichero indicado no existe
+#hay otro parámetro a parte del archivo que no es -r
+#hay demasiados parámetros
+
+case $1 in
+
+#si el primer parámetro es -r
+"-r")
+#indicamos que lo busque en la ruta de la papelera para rescatarlo, 
+#en este caso:
+cd /home/smarrero/Papelera
+#si existe el fichero indicado
+if [ -e $2 ]
+then 
+exit
+
+#si no existe
+else
+echo "El fichero indicado no existe o no se encuentra en la papelera"
+fi
+;;
+
+*)
+#si hay dos parámetros
+if [ $# -eq 2 ]
+then
+
+#si ni el segundo ni el primer parámetro son -r
+if [ $2 != "-r" ] && [ $1 != "-r" ]
+then
+echo "Error. Opción incorrecta. 
+Se esperaba -r fichero o fichero -r"
+else
+
+#buscamos el fichero en la papelera y en caso de que el segundo parámetro 
+#sea -r y el fichero exista
+cd /home/smarrero/Papelera
+if [ $2 = "-r" ] && [ -e $1 ]
+then
+exit
+else
+
+#si no se cumplen las condiciones
+echo "El fichero indicado no existe o no se encuentra en la papelera"
+fi
+fi
+
+#si no hay ningún parámetro 
+elif [ $# -lt 1 ]
+then
+echo "Debe especificar al menos el fichero"
+
+#si hay más de dos parámetros
+elif [ $# -gt 2 ]
+then
+echo "Ha introducido demasiados parámetros"
+
+else
+#Si hay  un solo parámetro
+if [ $# -eq 1 ]
+then
+
+#si es un fichero existente
+if [ -e $1 ]
+then
+exit
+
+else
+#si no lo es
+echo "Error. No se puede borrar un fichero que no existe"
+ fi
+fi
+fi
+;;
+esac
