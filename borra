@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#el alias habrá que crearlo desde el terminal, de modo que no se cree un alias por cada ejecución del script
+#si no se crea el alias en el terminal, para ejecutar el script habrá que poner: bash borra nombre_fichero
+
+if [ $# -eq 1 ]   #si el parametro es uno solo
+ 
+	then
+		ruta_absoluta="$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"  #guardo la ruta absoluta del fichero que se almacenerá en la bd
+		mv $1 ~/Papelera    #muevo el fichero a la Papelera
+		echo Tu archivo se borró correctamente.
+	else
+
+		if [ $1 != '-r' ]   #si no si el 1º parametro es diverso que -r o sea que es el fichero
+
+			then
+ 				mv ~/Papelera/$1 ~/$1  #muevo el fichero de Papelera a la ruta que he almacenado en la bd
+				echo Tu archivo se restauró correctamente.
+	 		else
+				#el fichero es el 2º parametro 
+				mv ~/Papelera/$2 ~/$2    #muevo el fichero de Papelera a la ruta absoluta almacenada en la bd
+				echo Tu archivo se restauró correctamente.
+		fi
+fi
+
+
