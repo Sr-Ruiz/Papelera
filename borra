@@ -9,6 +9,6 @@ if [ ! -d $Home/papelera ]
         mkdir $Home/paplera
         echo "La Papelera ha sido creada"
      else
-         ls -lia $Home/$USER/.papelera
+         ls -lia $Home/$USER/Escritorio/.papelera
         echo "Creado el acceso directo"
 fi
