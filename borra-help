@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+#help
+
+Help()
+{
+#display help
+echo "a continuacion se muestran las diferentes opciones del script"
+echo "borra- h:muestra el menu de ayuda"
+echo "borra fichero: borra el fichero"
+echo "para elegir que archivo borrar en borra fichero sustituye fichero  por la ruta del archivo a borar"
+echo "borra fichero -r restaura el archivo"
+echo "borra fichero -d: elimina directamente el archivo de la papelera"
+echo "borra -lista visualiza los archivos actuales de la papelera"
+}
+
+#main program
+while getopts ":h" option; do
+  case $option in
+h) #display help
+Help
+exit;
+esac
+done
+
+
