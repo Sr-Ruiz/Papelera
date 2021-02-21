@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $? -eq 0 ]
+then
+  echo "Borrado satisfactorio"
+  exit 0
+else
+  echo "Borrado fallido" >&2
+  exit 1
+fi
+
+
