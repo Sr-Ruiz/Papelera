@@ -1,0 +1,14 @@
+#!/bin/bash
+#codigo hecho por Ismael Granero
+#Crear un enlace en el escritorio a la papelera creada (si no existe la creare)
+
+clear
+
+if [ ! -d $Home/papelera ]
+   then
+        mkdir $Home/paplera
+        echo "La Papelera ha sido creada"
+     else
+         ls -lia $Home/$USER/Escritorio/.papelera
+        echo "Creado el acceso directo"
+fi
