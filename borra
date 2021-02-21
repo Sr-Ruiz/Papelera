@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Añadimos una función que permita visualizar los archivos contenidos en la papelera
+#borra -lista
+
+if [ $# -gt 0 ]
+then
+   if [ $1 = "-lista" ]
+	then
+		echo "Mostrando todos los ficheros contenidos en la Papelera"
+		
+		# Accedemos al directorio de la papelera
+		cd PapeleraReciclaje
+
+		# Mostramos su contenido
+		ls
+
+		# Mostramos el numero de ficheros encontrados
+		ls | wc -l
+		echo "ficheros encontrados"
+
+		# Salimos del directorio
+		cd ..
+   fi
+fi
+
