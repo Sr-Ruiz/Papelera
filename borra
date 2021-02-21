@@ -1,0 +1,7 @@
+#Priemro buscamos los archivos borrados de la Base de Datos 
+#Y luego que elimine los que hace más de 30 días.
+0 4 * * * find "ruta_BD" -mtime +30 -exec rm {} \.
+#A las 04:00 todos los días se automatiza para que ejecute el comando solo.
+#Ahora que busque en el directorio Papelera
+0 4 * * * find -type d "ruta_Papelera" -mtime +30 -exec rm {} \.
+#Uso -type d porque papelera entiendo que es un directorio.
