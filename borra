@@ -7,6 +7,6 @@
 Directorio=/PapeleraReciclaje
 
 if [ ! -d $Directorio ]
-then mkdir ~/$Directorio 2> /dev/null
-fi
+then mkdir ~/$Directorio 2>> error.log
+fi 
 
