@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#condición if para que se ejcute cuandose ejecuta el programa borra
+	 [$# -eq1 ]&&[-e $1]
+#preguntasmos siestá seguro
+
+ echo "¿está seguro de borrar este archivo[S/N]?"
+	read respuesta
+	  if ["$respuesta" = "N" ]
+	  then echo "operación cnacelada"
+fi
+	elif [$respuesta="S"]
+        then echo "se borrará el archivo seleccionado"
+	else "carácteres aceptados [S/N]
