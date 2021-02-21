@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-#Mover archivo por parametros a la papelera
-#
-
-mv $1 ~/.local/share/Trash/files
