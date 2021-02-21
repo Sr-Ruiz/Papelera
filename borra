@@ -1,3 +1,4 @@
+#!/bin/bash
 #Priemro buscamos los archivos borrados de la Base de Datos 
 #Y luego que elimine los que hace más de 30 días.
 0 4 * * * find "ruta_BD" -mtime +30 -exec rm {} \.
